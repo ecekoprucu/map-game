@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MapComponent from './components/Map';
+import { DataProvider } from './context/dataContext';
+import CreateSide from './components/CreateSide';
+import FlagSide from './components/FlagSide';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <div>
+        <div className="App">
+          <MapComponent />
+          <div className='picking-area'>
+           <CreateSide/>
+          </div>
+        </div>
+        <div className="flag-area">
+          <FlagSide />
+        </div>
+      </div>
+    </DataProvider>
   );
 }
 
